@@ -1,9 +1,13 @@
-name: Checks
+name: Lint
 
 on:
+  push:
+    branches: [ main ]
+
   pull_request:
-    branches:
-      - main
+    branches: [ main ]
+
+  workflow_dispatch:
 
 jobs:
   commits-are-conventional:
