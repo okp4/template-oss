@@ -10,7 +10,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  commits-are-conventional:
+  lint-commits:
     runs-on: ubuntu-20.04
     steps:
       - name: Check out repository
@@ -20,3 +20,14 @@ jobs:
 
       - name: Check commits
         uses: wagoid/commitlint-github-action@v4
+
+  lint-markdown:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v2
+
+      - name: Lint markdown files
+        uses: avto-dev/markdown-lint@v1.5.0
+        with:
+          args: "**/*.md"
